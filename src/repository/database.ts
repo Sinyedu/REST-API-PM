@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { connect } from "node:http2";
 
 export async function testConnection() {
   try {
