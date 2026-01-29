@@ -1,6 +1,5 @@
 import { Schema, model } from "mongoose";
 import { City } from "../interfaces/city";
-import { User } from "../interfaces/user";
 
 const citySchema = new Schema<City>({
   name: { type: String, required: true, min: 2, max: 100 },
