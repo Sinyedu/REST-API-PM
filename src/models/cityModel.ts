@@ -7,7 +7,7 @@ const citySchema = new Schema<City>({
   population: { type: Number, required: true, min: 0 },
   restaurants: { type: Number, required: true, min: 0 },
   createdAt: { type: Date, default: Date.now },
-  _createdBy: { type: String, ref: "User", required: true },
+  _createdBy: { type: String, ref: "User", required: false },
 });
 
 export const CityModel = model<City>("City", citySchema);
