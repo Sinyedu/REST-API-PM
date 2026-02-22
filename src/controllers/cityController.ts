@@ -44,3 +44,70 @@ export async function getAllCities(req: Request, res: Response): Promise<void> {
     await disconnectFromDatabase();
   }
 }
+
+/**
+ * Fetches a city by its ID from the database.
+ * @param req
+ * @param res
+ * @returns
+ */
+
+export async function getCityById(req: Request, res: Response) {
+  try {
+    await connectToDatabase();
+    const cityId = req.params.id;
+    const city = await CityModel.findById(cityId);
+
+    if (!city) {
+      res.status(404).json({ message: "City not found" });
+      return;
+    }
+    res.status(200).json(city);
+  } catch (error) {
+    console.error("Error fetching city by ID:" + error);
+    res.status(500).json({ message: "Failed to fetch city" });
+  } finally {
+    await disconnectFromDatabase();
+  }
+}
+
+export async function updateCityById(req: Request, res: Response) {
+  try {
+    await connectToDatabase();
+    const cityId = req.params.id;
+    const updateData = req.body;
+    const updatedCity = await CityModel.findByIdAndUpdate(cityId, updateData, {
+      new: true,
+    });
+
+    if (!updatedCity) {
+      res.status(404).json({ message: "City not found" });
+      return;
+    }
+    res.status(200).json(updatedCity);
+  } catch (error) {
+    console.error("Error updating city by ID:" + error);
+    res.status(500).json({ message: "Failed to update city" });
+  } finally {
+    await disconnectFromDatabase();
+  }
+}
+
+export async function deleteCityById(req: Request, res: Response) {
+  try {
+    await connectToDatabase();
+    const cityId = req.params.id;
+    const deletedCity = await CityModel.findByIdAndDelete(cityId);
+
+    if (!deletedCity) {
+      res.status(404).json({ message: "City not found" });
+      return;
+    }
+    res.status(200).json({ message: "City deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting city by ID:" + error);
+    res.status(500).json({ message: "Failed to delete city" });
+  } finally {
+    await disconnectFromDatabase();
+  }
+}
