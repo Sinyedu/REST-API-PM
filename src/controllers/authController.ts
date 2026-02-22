@@ -1,10 +1,7 @@
-import { type Request, type Response, type NextFunction } from "express";
-
+import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-
 import bcrypt from "bcrypt";
 import Joi, { ValidationResult } from "joi";
-
 import { UserModel } from "../models/userModel";
 import { User } from "../interfaces/user";
 import {
