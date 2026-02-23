@@ -18,7 +18,7 @@ router.get("/", (req: Request, res: Response) => {
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 // City routes
-router.post("/cities", verifyToken, createCity);
+router.post("/cities", createCity);
 router.get("/cities", getAllCities);
 router.get("/cities/:id", getCityById);
 router.put("/cities/:id", verifyToken, updateCityById);
