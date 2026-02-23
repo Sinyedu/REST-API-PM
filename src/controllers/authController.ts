@@ -30,7 +30,7 @@ export async function loginUser(req: Request, res: Response) {
     });
 
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(401).json({ message: "Invalid email or password" });
     } else {
       const checkHashedPassword: boolean = await bcrypt.compare(
         req.body.password,
