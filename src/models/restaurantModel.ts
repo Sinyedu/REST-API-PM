@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 import { Restaurant } from "../interfaces/restaurant";
 
 const restaurantSchema = new Schema({
-  name: String,
-  cuisine: String,
+  name: { type: String, required: true },
+  cuisine: { type: String, required: true },
   city: {
     type: Schema.Types.ObjectId,
     ref: "City",

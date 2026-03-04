@@ -2,9 +2,9 @@ import { Schema, model } from "mongoose";
 import { City } from "../interfaces/city";
 
 const citySchema = new Schema({
-  name: String,
-  country: String,
-  population: Number,
+  name: { type: String, required: true },
+  country: { type: String, required: true },
+  population: { type: Number, required: true },
   restaurants: [{ type: Schema.Types.ObjectId, ref: "Restaurant" }],
   createdAt: { type: Date, default: Date.now },
   _createdBy: { type: Schema.Types.ObjectId, ref: "User" },
