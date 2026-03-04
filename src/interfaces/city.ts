@@ -1,11 +1,10 @@
-import { User } from "./user";
+import { Types, Document } from "mongoose";
 
 export interface City extends Document {
-  id: string;
   name: string;
   country: string;
   population: number;
-  restaurants: number;
+  restaurants?: Types.ObjectId[];
   createdAt: Date;
-  _createdBy: User["id"];
+  _createdBy?: Types.ObjectId;
 }
