@@ -9,7 +9,7 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
 
   try {
     if (token) {
-      jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+      jwt.verify(token, process.env.JWT_SECRET_TOKEN as string);
       next();
     }
   } catch (error) {
