@@ -48,7 +48,7 @@ export async function loginUser(req: Request, res: Response) {
           email: user.email,
           id: userId,
         },
-        process.env.JWT_SECRET_KEY as string,
+        process.env.JWT_SECRET_TOKEN as string,
         { expiresIn: "1h" },
       );
       return res.status(200).json({
