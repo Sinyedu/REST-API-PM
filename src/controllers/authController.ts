@@ -80,7 +80,7 @@ export async function registerUser(req: Request, res: Response) {
     await connectToDatabase();
     const emailExists = await UserModel.findOne({ email: req.body.email });
     if (emailExists) {
-      return res.status(400).json({ error: "Email already exists" });
+      return res.status(409).json({ error: "Email already exists" });
     }
 
     const salt = await bcrypt.genSalt(10);
