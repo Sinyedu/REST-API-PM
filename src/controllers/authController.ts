@@ -8,7 +8,7 @@ import {
   connectToDatabase,
   disconnectFromDatabase,
 } from "../repository/database";
-
+// LOL HAHAHA
 /**
  * Logs in a user by validating their credentials and generating a JWT token.
  * @param req
