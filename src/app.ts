@@ -32,7 +32,7 @@ setupDocumentation(app);
 export function startServer() {
   testConnection();
   const PORT: number = Number(process.env.PORT) || 42069;
-  app.listen(PORT, function () {
+  app.listen(PORT, function() {
     console.log("Server is running on port:" + PORT);
   });
 }
