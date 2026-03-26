@@ -3,7 +3,7 @@ import dotenvFlow from "dotenv-flow";
 import routes from "./routes";
 import { testConnection } from "./repository/database";
 import cors from "cors";
-import { setupDocumentation } from "../src/util/swaggerDocumentation";
+import { setupDocumentation } from "./util/swaggerDocumentation";
 
 dotenvFlow.config();
 
